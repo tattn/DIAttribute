@@ -3,6 +3,10 @@ DIAttribute
 
 [WIP] DIAttribute introduces dependency injection attribute.
 
+# Installation
+
+You can install this framework with Swift Package Manager in Xcode 11.
+
 # Feature
 
 ## Inject protocol values
