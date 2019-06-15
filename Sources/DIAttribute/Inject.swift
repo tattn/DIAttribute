@@ -9,13 +9,9 @@ import Foundation
 
 @propertyWrapper
 public struct Inject<Target, Value> {
-    let target: Target.Type
-
-    public init(_ type: Target.Type) {
-        target = type
-    }
+    public init(_ type: Target.Type) {}
 
     public var value: Value {
-        DIResolver.resolve(target)!
+        DIResolver.resolve(Target.self)!
     }
 }

@@ -48,9 +48,19 @@ final class DIAttributeTests: XCTestCase {
         XCTAssertEqual(A().sample.stringValue, sample.stringValue)
     }
 
+    func testInjectStaticValue() {
+        struct A {
+            @Inject(Self.self) static var value: Int
+        }
+
+        DIResolver.register(A.self, type: Int.self, value: 321)
+        XCTAssertEqual(A.value, 321)
+    }
+
     static var allTests = [
         ("testInjectPrimitiveType", testInjectPrimitiveType),
         ("testInjectProtocol", testInjectProtocol),
-        ("testInjectMultiValue", testInjectMultiValue)
+        ("testInjectMultiValue", testInjectMultiValue),
+        ("testInjectStaticValue", testInjectStaticValue)
     ]
 }
