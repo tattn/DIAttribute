@@ -11,7 +11,7 @@ import Foundation
 public struct Inject<Target, Value> {
     public init(_ type: Target.Type) {}
 
-    public var value: Value {
+    public var wrappedValue: Value {
         DIResolver.resolve(Target.self)!
     }
 }
